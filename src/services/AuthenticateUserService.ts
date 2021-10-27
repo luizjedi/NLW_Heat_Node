@@ -1,8 +1,7 @@
 import axios from "axios";
+import "dotenv/config";
 import { sign } from "jsonwebtoken";
-import prismaClient from "../prisma";
-
-
+import { prismaClient } from "../prisma";
 
 /**
  * Receber code(string)
@@ -80,7 +79,7 @@ class AuthenticateUserService {
             }
         );
 
-        return response.data;
+        return { token, user };
 
     }
 }
